@@ -1,0 +1,57 @@
+body {
+    background-color: white;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+.head {
+    background-color: #2e2d88;
+    color: white;
+    font-size: 72px;
+}
+.head--font {
+    background-color: #2e2d88;
+    color: white;
+}
+.head--font--button {
+    margin-right: 50px;
+}
+#button-1:hover,
+#button-2:hover {
+    color: green;
+}
+.jumbotron {
+    background-color: #2e2d88;
+    color: white;
+}
+.Leftie {
+    font-size: 30px;
+}
+.Rightie {
+    font-size: 20px;
+}
+.fa-star {
+    color: gold;
+}
+.fa-usd {
+    color: green;
+}
+.fa-clock-o {
+    color: tomato;
+}
+hr {
+    background-color: #2e2d88;
+    height: 3px;
+}
+#ADDRESS {
+    font-size: 23px;
+}
+#map {
+    height: 70%;
+}
+.container {
+    width: 80%;
+}

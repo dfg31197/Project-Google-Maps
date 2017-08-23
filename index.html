@@ -1,0 +1,97 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Google Maps</title>
+      <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script defer src="scripts/lib/knockout-3.2.0.js"></script>
+      </script>
+   </head>
+   <body>
+      <article class="container">
+         <header class="row">
+            <div class="col-md-6 head center">
+               Google Maps
+            </div>
+            <div class="col-md-6 right head--font ">
+               <h1><span title="Show Markers"><i id="button-1" data-bind="event:{click:showListings}" class="fa fa-compass fa-2x head--font--button" aria-hidden="true"></i></span><span title="Hide Markers"><i id="button-2" data-bind="event:{click:hideListings}" class="fa fa-window-close-o fa-2x head--font--button" aria-hidden="true"></i></span></h1>
+               </h1>
+            </div>
+         </header>
+         <section class="row">
+            <div class="col-md-12">
+               <div id="map"></div>
+            </div>
+         </section>
+         <hr>
+         <section class="row">
+            <div class="col-md-6">
+               <div class="btn-group btn-group-justified">
+                  <div class=" btn-group">
+                     <button id="button--draw" class="btn btn-primary btn-lg " data-bind="event:{click: toggleDrawing}">Draw</button>
+                  </div>
+                  <div id="button--search" class=" btn-group" data-bind="event:{click: findArea}">
+                     <button class="btn btn-warning btn-lg ">Search</button>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <input id="inputArea" type="text" class="form-control" data-bind="value:check, valueUpdate:'afterkeydown',event:{keyup:filterList}" placeholder="What places are you looking for?">
+            </div>
+            <div class="col-md-2">
+               <span ><i title="Full address of the location is shown below" class="fa fa-search fa-4x" aria-hidden="true"></i></span>
+            </div>
+         </section>
+         <section class="row">
+            <div class="col-md-6">
+               <ul class="list-group" data-bind="foreach:markers">
+                  <div class="btn-group" data-bind="visible:visibility,event:{'click':$parent.selectDatMarker}">
+                     <div class="btn-group">
+                        <button class="btn btn-success btn-lg" data-bind="text:title"></button>
+                     </div>
+                  </div>
+               </ul>
+            </div>
+            <div class="col-md-6">
+               <div class="jumbotron" data-bind="text: addressDetailed" id="ADDRESS">
+               </div>
+            </div>
+         </section>
+         <hr>
+         <section class="row">
+            <div class="col-md-6">
+               <img src="" alt="Image of a Hotel" class="img-responsive" data-bind="attr:{src:imageSRC}">
+            </div>
+            <div class="col-md-3">
+               <div class="jumbotron" title="Joint">
+                  <span class="Leftie"><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>    </span><span class="Rightie" data-bind="text:Title"></span>
+               </div>
+            </div>
+            <div class="col-md-3">
+               <div class="jumbotron" title="Ratings">
+                  <span class="Leftie"><i class="fa fa-star fa-2x" aria-hidden="true"></i>    </span><span class="Rightie" data-bind="text:ratings"></span>
+               </div>
+            </div>
+            <div class="col-md-3" title="Prices">
+               <div class="jumbotron">
+                  <span class="Leftie"><i class="fa fa-usd fa-2x" aria-hidden="true"></i>    </span><span class="Rightie" data-bind="text:pricing"></span>
+               </div>
+            </div>
+            <div class="col-md-3" title="Timings">
+               <div class="jumbotron">
+                  <span class="Leftie"><i class="fa fa-clock-o fa-2x " aria-hidden="true"></i>    </span><span class="Rightie" data-bind="text:Timings"></span>
+               </div>
+            </div>
+         </section>
+         <hr>
+      </article>
+      <script type="text/javascript">
+         function Error(){alert("Something went wrong. Please check your connection and try again later.");}
+      </script>
+      <script defer src="scripts/app.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBVTjOUpYlVEQ1_Cvbij5kfaUXavze64qo&v=3&callback=initMap" onerror="Error()" async defer></script>
+   </body>
+</html>
